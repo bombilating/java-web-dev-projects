@@ -27,6 +27,34 @@ public class Menu {
     public ArrayList<MenuItem> getItems() {
         return items;
     }
+
+    public void addMenuItem(MenuItem item){
+        items.add(item);
+    }
+
+    public void removeMenuItem(MenuItem item){
+        if(!items.contains(item)) {
+            System.out.println("Menu item not found.");
+        } else {
+            items.remove(item);
+        }
+    }
+
+    public MenuItem retrieveMenuItem(MenuItem item){
+        if(!items.contains(item)) {
+            System.out.println("Menu item not found.");
+            return null;
+        } else {
+            return items.get(items.indexOf(item));
+        }
+    }
+    public boolean isMenuItemNew(MenuItem item){
+        return items.get(items.indexOf(item)).isNew();
+    }
+
+    public void sayDateLastUpdated(){
+        System.out.println("The last time the menu was updated was " + lastUpdated);
+    }
 }
 
 
